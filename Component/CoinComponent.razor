@@ -1,0 +1,122 @@
+﻿@using Microsoft.AspNetCore.Components
+@using System.ComponentModel
+@using System.Data
+@using System.Threading
+@using System.IO.Ports
+@using MoneyChanger.Data
+
+@inject MoneyExchange monex
+@inject Money money
+
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card" style="width: 57rem; margin: 0 auto; float: none; margin-top: 9%;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            line-height: 3rem;">
+                <div class="card-header2 text-center">
+                    Please Enter The Amount Of Money To Be Exchange
+                </div>
+                <!-- <div id="scs" class="card-header2 text-center">
+        Scan Succes
+    </div> -->
+                <div class="card-body text-left2" style="align-self: center;">
+                    <table id="tabel">
+                        <tr>
+                            <button class="btn-next btn" value="" @onclick="start">Start</button>
+                        </tr>
+                        <tr>
+                            <p style="font-size: 15px; font-style: italic;" >
+                                Make sure the money is not folded, damaged, or torn.
+                            </p>
+                        </tr>
+                        <tr>
+                            <p style="font-size: 18px; font-weight: bold; color: #58B7FE;">
+                                Number of conversion to IDR
+                            </p>
+                        </tr>
+                        <tr>
+                            <p style="font-size: 18px; font-style: normal;">
+                                <input type="text" class="form-control" placeholder="AMOUNT TO CONVERT" @bind="jumlahconvert" />
+                            </p>
+                        </tr>
+                        <tr>
+                            <button class="btn-next btn"  value="" @onclick="exchange">Convert</button>
+                        </tr>
+                        <tr>
+                            <p style="font-size: 18px; font-weight: bold; color: #58B7FE;">
+                                Do you want to continue the transaction?
+                            </p>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <button class="btn-cancel btn" value="" @onclick="verification">Back</button>
+        <button class="btn-next btn" value="" @onclick="lanjut">Next</button>
+        <!-- <button class="btn-next btn" value="">Next</button> -->
+    </footer>
+ 
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private string jumlahkoin = string.Empty;
+    //SerialPort serialPort = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
+    CoinDispenserLibrary.CoinDispenser cdl = new CoinDispenserLibrary.CoinDispenser(3,3);
+    private string jumlahconvert = string.Empty;
+    private string tipeuang = string.Empty;
+    private string nilaiuang = string.Empty;
+
+    public void verification()
+    {
+        OnClick.InvokeAsync("verification");
+        monex.returnfunction();
+    }
+
+    public void lanjut()
+    {
+        coindispenser();
+        monex.stackfunction();
+    }
+
+    public void start()
+    {
+        monex.setportname("COM3");
+        monex.openfunction();
+    }
+
+    public void exchange()
+    {
+        monex.openfunction();
+        tipeuang = money._moneytipe;
+        nilaiuang = money._moneyvalue;
+        jumlahconvert = monex.convertuang(tipeuang, nilaiuang);
+
+    }
+
+    public void coindispenser()
+    {
+        //coindispenser = new CoinDispenser(3, 3);
+        //coindispenser.Polling();
+        cdl.Reset();
+        //int rc = coindispenser.StatusDispenser();
+        cdl.Enable();
+        byte[] bytecipher = cdl.RequestCipher();
+        int coin = int.Parse(jumlahkoin);
+        //int coin = coin / 1000;
+        cdl.Dispense(coin);
+    }
+
+    /*protected override async Task OnInitializedAsync()
+    {
+        monex.initialize();
+    }*/
+
+}

@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNetCore.Components
+@using MoneyChanger.Data
+
+@inject MoneyExchange monex
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="card" style="width: 57rem; margin: 0 auto; float: none; margin-top: 20px; font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            line-height: 3rem;">
+            <div class="card-header2 text-center">
+                Please Make Sure to Know
+            </div>
+            <div class="card-body text-left2" style="align-self: center;">
+                <li>Once you insert a foreign banknote, it cannot be returned. Please be careful</li>
+                <li>We do not accept cash cards and credit cards. We accept foreign banknotes only.</li>
+                <li>The upper limit of currency exchange per transaction is less than 100.000 Rupiah.</li>
+                <li>We cannot give you changes of foreign banknotes and coins (Rupiah Only).</li>
+                <li>You cannot put in foreign coins.</li>
+                <li>We cannot return foreign banknoter once you put them in.</li>
+                <li>Please do not forget to take Indonesian banknotes, coin and a receipt.</li>
+                <li>Please check the amount of Indonesian Rupiah as soon as possible.</li>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <button class="btn-cancel btn" value="" @onclick="home">Cancel</button> &nbsp;
+    <button class="btn-next btn" value="" @onclick="verification">Agree</button>
+</footer>
+
+@code {
+
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    public void home()
+    {
+        OnClick.InvokeAsync("default");
+    }
+
+    public void verification()
+    {
+        OnClick.InvokeAsync("verification");
+    }
+
+    
+
+}

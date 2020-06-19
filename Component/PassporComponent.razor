@@ -1,0 +1,73 @@
+﻿@using Microsoft.AspNetCore.Components
+@using MoneyChanger.Data
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card" style="width: 57rem; margin: 0 auto; float: none; margin-top: 9%;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            line-height: 3rem;">
+                <div class="card-header2 text-center">
+                    Please Place Your Passport
+                </div>
+                <!-- <div id="scs" class="card-header2 text-center">
+                Scan Succes
+            </div> -->
+                <div class="card-body text-left2" style="align-self: center;">
+                    <table id="tabel">
+                        <tr>
+                            <td>PASSPORT NO</td>
+                            <td> &emsp;&emsp; : </td>
+                            <td><input type="number" class="form-control" placeholder="PASSPORT NUMBER" @bind="nomorpassport"/></td>
+                            <!-- <td id="passport">&emsp;<span style="font-weight: bold;">081388889999</span></td> -->
+                        </tr>
+                        <tr>
+                            <td>FULL NAME</td>
+                            <td>&emsp;&emsp; : </td>
+                            <td><input type="text" class="form-control" placeholder="YOUR NAME" @bind="nama" /></td>
+                            <!-- <td id="name">&emsp;<span style="font-weight: bold; text-transform: uppercase;">ismed sofyan</span></td> -->
+                        </tr>
+                        <tr>
+                            <td>NATIONALITY</td>
+                            <td>&emsp;&emsp; : </td>
+                            <td><input type="text" class="form-control" placeholder="YOUR NASIONALITY" @bind="kewarganegaraan" /></td>
+                            <!-- <td id="nationality">&emsp;<span style="font-weight: bold; text-transform: uppercase;">germany</span></td> -->
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <button class="btn-cancel btn" value="" @onclick="verification">Back</button>
+        <button class="btn-next btn" value="" @onclick="lanjut">Next</button>
+        <!-- <button class="btn-next btn" value="">Next</button> -->
+    </footer>
+
+@code {
+
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private string nomorpassport = string.Empty;
+    private string nama = string.Empty;
+    private string kewarganegaraan = string.Empty;
+
+    public void verification()
+    {
+        OnClick.InvokeAsync("verification");
+    }
+
+    public void lanjut()
+    {
+        /*if(nomorpassport != string.Empty && nama != string.Empty && kewarganegaraan != string.Empty)
+        {
+            OnClick.InvokeAsync("coin");
+        }*/
+        OnClick.InvokeAsync("coin");
+    }
+
+}

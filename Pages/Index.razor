@@ -1,0 +1,79 @@
+﻿@page "/"
+
+@using MoneyChanger.Component
+@using MoneyChanger.Data
+
+@inject MoneyExchange monex
+
+    <div class="wrapper">
+        <div class="">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-transparent">
+                <div class="navbar-collapse collapse justify-content-center order-2" id="collapsingNavbar">
+                    <ul class="navbar-nav">
+                        <div class="switch">
+                            <div class="quality">
+                                <input checked id="q1" name="q" type="radio" value="q1">
+                                <label for="q1">ID</label>
+                            </div><div class="quality">
+                                <input id="q2" name="q" type="radio" value="q2">
+                                <label for="q2">EN</label>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
+            @switch (message)
+            {
+                case "agreement":
+                    {
+                        <AgreementComponent OnClick="ClickHandler"></AgreementComponent>
+                        break;
+                    }
+
+                case "verification":
+                    {
+                        <VerificationComponent OnClick="ClickHandler"></VerificationComponent>
+                        break;
+                    }
+
+                case "ektp":
+                    {
+                        <EktpComponent OnClick="ClickHandler"></EktpComponent>
+                        break;
+                    }
+
+                case "passpor":
+                    {
+                        <PassporComponent OnClick="ClickHandler"></PassporComponent>
+                        break;
+                    }
+
+                case "coin":
+                    {
+                        <CoinComponent OnClick="ClickHandler"></CoinComponent>
+                        break;
+                    }
+
+                default:
+                    {
+                        <HomeComponent OnClick="ClickHandler"></HomeComponent>
+                        break;
+                    }
+            }
+        </div>
+</div>
+
+@code{
+    private string message = string.Empty;
+
+    void ClickHandler(string newmessage)
+    {
+        message = newmessage;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        monex.initialize();
+    }
+}

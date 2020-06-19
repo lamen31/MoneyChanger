@@ -1,0 +1,62 @@
+﻿@using Microsoft.AspNetCore.Components
+
+<h3 class="txt-welcome" style="margin-top: 4%;"><b>Choose Verification Method</b></h3>
+<!-- End Navbar -->
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="middle">
+                <div class="card" style="width: 25rem; margin: 0 auto; float: none; margin-bottom: 20px;" @onclick="ektp">
+                    <div class="card-body" style="display: flex;">
+                        <div class="col-md-4">
+                            <img src="../assets/image/icon-ektp.png" class="icon-ektp">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="text-left">
+                                <p style="font-size: 18px; font-weight: bold; color: #58B7FE;">ID / E-KTP</p>
+                                <p style="font-size: 15px; font-style: italic;">Prepare your ID/E-KTP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          
+                <div class="card" style="width: 25rem; margin: 0 auto; float: none;" @onclick="passpor">
+                    <div class="card-body" style="display: flex;">
+                        <div class="col-md-4">
+                            <img src="../assets/image/icon-paspor.png" class="icon-paspor">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="text-left">
+                                <p style="font-size: 18px; font-weight: bold; color: #58B7FE;">Passport</p>
+                                <p style="font-size: 15px; font-style: italic;">Prepare your passport</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <button class="btn-cancel btn" value="" @onclick="agreement">Cancel</button>
+</footer>
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    public void agreement()
+    {
+        OnClick.InvokeAsync("agreement");
+    }
+
+    public void ektp()
+    {
+        OnClick.InvokeAsync("ektp");
+    }
+
+    public void passpor()
+    {
+        OnClick.InvokeAsync("passpor");
+    }
+}

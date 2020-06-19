@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IO.Ports" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CoinDispenserLibrary">
+      <HintPath>CoinDispenserLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="MPOST">
+      <HintPath>..\bill acceptor\MPOST.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,305 @@
+﻿@using Microsoft.AspNetCore.Components
+
+<h2 class="txt-welcome"><b> welcome to <b style="color: red;">indonesia</b></b></h2>
+<h1 class="txt-get-rupiah"><b>get rupiah</b></h1>
+<!-- End Navbar -->
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6" style="color: white;">
+                <b>Exchange Rate today</b><br>
+                <b>@waktu</b>
+            </div>
+            <!-- <div class="col-md-6" style="color:yellow;" >
+              <b style="float: right;" onclick="">See More</b>
+            </div> -->
+        </div>
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card-deck">
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body" style="display: flex;">
+                                <div class="col-md-3">
+                                    <img src="../assets/image/USD.png" class="icon">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-left">
+                                        <p style="font-size: 18px; font-weight: bold;">USD</p>
+                                        <p style="font-size: 18px;">United States Dollar</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="text-right">
+                                        <p style="font-size: 18px; font-weight: 600;">Rp 15.000</p>
+                                        <p style="font-size: 18px;">+1000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body" style="display: flex;">
+                                <div class="col-md-3">
+                                    <img src="../assets/image/JPY.png" class="icon">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-left">
+                                        <p style="font-size: 18px; font-weight: bold;">JPY</p>
+                                        <p style="font-size: 18px;">Japanese Yen</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="text-right">
+                                        <p style="font-size: 18px; font-weight: 600;">Rp 15.000</p>
+                                        <p style="font-size: 18px;">+1000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body" style="display: flex;">
+                                <div class="col-md-3">
+                                    <img src="../assets/image/HKD.png" class="icon">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-left">
+                                        <p style="font-size: 18px; font-weight: bold;">HKD</p>
+                                        <p style="font-size: 18px;">Hongkong Dollar</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="text-right">
+                                        <p style="font-size: 18px; font-weight: 600;">Rp 15.000</p>
+                                        <p style="font-size: 18px;">+1000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-deck">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body" style="display: flex;">
+                                <div class="col-md-3">
+                                    <img src="../assets/image/Flag_of_the_United_Kingdom.svg" class="icon">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-left">
+                                        <p style="font-size: 18px; font-weight: bold;">GBP</p>
+                                        <p style="font-size: 18px;">Pound Sterling</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="text-right">
+                                        <p style="font-size: 18px; font-weight: 600;">Rp 15.000</p>
+                                        <p style="font-size: 18px;">+1000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body" style="display: flex;">
+                                <div class="col-md-3">
+                                    <img src="../assets/image/AUD.png" class="icon">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-left">
+                                        <p style="font-size: 18px; font-weight: bold;">AUD</p>
+                                        <p style="font-size: 18px;">Australian Dollar</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="text-right">
+                                        <p style="font-size: 18px; font-weight: 600;">Rp 15.000</p>
+                                        <p style="font-size: 18px;">+1000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body" style="display: flex;">
+                                <div class="col-md-3">
+                                    <img src="../assets/image/Flag_of_the_United_Kingdom.svg" class="icon">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-left">
+                                        <p style="font-size: 18px; font-weight: bold;">SGD</p>
+                                        <p style="font-size: 18px;">Singapore Dollar</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="text-right">
+                                        <p style="font-size: 18px; font-weight: 600;">Rp 15.000</p>
+                                        <p style="font-size: 18px;">+1000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="card-deck">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body" style="display: flex;">
+                                <div class="col-md-3">
+                                    <img src="../assets/image/Flag_of_Europe.svg" class="icon">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-left">
+                                        <p style="font-size: 18px; font-weight: bold;">EUR</p>
+                                        <p style="font-size: 18px;">Euro</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="text-right">
+                                        <p style="font-size: 18px; font-weight: 600;">Rp 15.000</p>
+                                        <p style="font-size: 18px;">+1000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body" style="display: flex;">
+                                <div class="col-md-3">
+                                    <img src="../assets/image/CNY.png" class="icon">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-left">
+                                        <p style="font-size: 18px; font-weight: bold;">CNY</p>
+                                        <p style="font-size: 18px;">Chinese Yuan</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="text-right">
+                                        <p style="font-size: 18px; font-weight: 600;">Rp 15.000</p>
+                                        <p style="font-size: 18px;">+1000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body" style="display: flex;">
+                                <div class="col-md-3">
+                                    <img src="../assets/image/MYR.png" class="icon">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-left">
+                                        <p style="font-size: 18px; font-weight: bold;">MYR</p>
+                                        <p style="font-size: 18px;">Malaysian Ringgit</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="text-right">
+                                        <p style="font-size: 18px; font-weight: 600;">Rp 15.000</p>
+                                        <p style="font-size: 18px;">+1000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-deck">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body" style="display: flex;">
+                                <div class="col-md-3">
+                                    <img src="../assets/image/THB.png" class="icon">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-left">
+                                        <p style="font-size: 18px; font-weight: bold;">THB</p>
+                                        <p style="font-size: 18px;">Thai Baht</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="text-right">
+                                        <p style="font-size: 18px; font-weight: 600;">Rp 15.000</p>
+                                        <p style="font-size: 18px;">+1000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body" style="display: flex;">
+                                <div class="col-md-3">
+                                    <img src="../assets/image/PHP.png" class="icon">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-left">
+                                        <p style="font-size: 18px; font-weight: bold;">PHP</p>
+                                        <p style="font-size: 18px;">Philippine Peso</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="text-right">
+                                        <p style="font-size: 18px; font-weight: 600;">Rp 15.000</p>
+                                        <p style="font-size: 18px;">+1000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body" style="display: flex;">
+                                <div class="col-md-3">
+                                    <img src="../assets/image/TWD.png" class="icon">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-left">
+                                        <p style="font-size: 18px; font-weight: bold;">TWD</p>
+                                        <p style="font-size: 18px;">Taiwan Dollar</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="text-right">
+                                        <p style="font-size: 18px; font-weight: 600;">Rp 15.000</p>
+                                        <p style="font-size: 18px;">+1000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <button class="btn-next btn" value="" @onclick="agreement">Next</button>
+</footer>
+
+@code {
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+    private string waktu = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second).ToString("ddd, MMM dd yyy HH:mm:ss 'GMT +0700 (Western Indonesia Time)'");
+    //private string tanggal = waktu + " GMT +0700 " + " (Western Indonesia Time)";
+
+    public void agreement()
+    {
+        OnClick.InvokeAsync("agreement");
+    }
+}
